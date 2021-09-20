@@ -1,2 +1,2 @@
-web: npm .
+web: node .
 
