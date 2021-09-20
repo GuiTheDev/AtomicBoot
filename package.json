@@ -1,0 +1,17 @@
+{
+  "name": "atomicboot",
+  "version": "1.0.0",
+  "description": "a mixed bot for discord",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Guilherme Macedo",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0",
+    "fs": "^0.0.1-security",
+    "mongoose": "^6.0.6"
+  }
+}
