@@ -1,2 +1,2 @@
-worker: npm .
+web: npm .
 
