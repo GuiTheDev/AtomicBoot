@@ -1,6 +1,9 @@
 {
   "name": "atomicboot",
   "version": "1.0.0",
+  "engines":{
+    "node":16.x"
+}
   "description": "a mixed bot for discord",
   "main": "main.js",
   "scripts": {
