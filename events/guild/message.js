@@ -8,9 +8,10 @@ module.exports = async (Discord, client, message) => {
 
     if(!message.content.startsWith(prefix) || message.author.bot) return;
 
+
     let profileData;
-    try {
-        profileData = await profileModel.findOne({ UserID: message.author.id });
+
+        profileData = await profileModel.findOne({ userID: message.author.id });
         if(!profileData){
            let profile = await profileModel.create({
             userID: message.author.id,
@@ -20,15 +21,16 @@ module.exports = async (Discord, client, message) => {
            });
            profile.save();
           };
-    } catch (err) {
-        console.log(err);
-    }
+        
+    
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const cmd = args.shift().toLowerCase();
 
     const command = client.commands.get(cmd) ||
                     client.commands.find(a => a.aliases && a.aliases.includes(cmd));
+    
+    if(command == undefined) return;
 
     if(!cooldowns.has(command.name)) {
         cooldowns.set(command.name, new Discord.Collection());

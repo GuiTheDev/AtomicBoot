@@ -2,9 +2,11 @@ const profileModel = require("../models/profileSchema");
 module.exports = {
     name : 'beg',
     aliases: [],
+    cooldown: 180,
     description: "beg for coins",
     permissions: [],
     async execute(client, message, args, cmd, Discord, profileData,) {
+        if(!profileData) return message.reply('Looks like this is your first time, you need to run the command again!');
         const rand = Math.floor(Math.random() * 40) + 1;
         const response = await profileModel.findOneAndUpdate(
        {

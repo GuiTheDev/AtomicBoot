@@ -7,6 +7,7 @@ module.exports = {
     description: "work to get coins",
     permissions: [],
     async execute(client, message, args, cmd, Discord, profileData, MessageEmbed) {
+        if(!profileData) return message.reply('Looks like this is your first time, you need to run the command again!');
         const rand = Math.floor(Math.random() * 16000) + 1;
         const response = await profileModel.findOneAndUpdate(
         {
