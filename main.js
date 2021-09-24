@@ -1,6 +1,6 @@
 const Discord = { Client, Intents, DiscordAPIError } = require('discord.js');
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
-
+const prefix = '-';
 require('dotenv').config({ path: '.env' });
 
 const mongoose = require("mongoose");
@@ -18,6 +18,15 @@ client.once('ready', () => {
 })
 
 
+client.on('message', message => {
+    if(!message.content.startsWith(prefix) || message.author.bot) return;
+    if(message.content === "hello"){
+        message.reply('Hey!')
+    }
+})
+
+
+
 
 mongoose.connect(process.env.MONGODB_SRV, {
     useNewUrlParser: true,
@@ -27,5 +36,7 @@ mongoose.connect(process.env.MONGODB_SRV, {
 }).catch((err) => {
     console.log(err);
 });
+
+require('./dashboard/server');
 
 client.login(process.env.DISCORD_TOKEN);

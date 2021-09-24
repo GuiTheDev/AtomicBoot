@@ -1,3 +1,5 @@
+const profileModel = require("../models/profileSchema");
+
 module.exports = {
     name : 'balance',
     aliases: ["bal", "bl"],
@@ -6,7 +8,7 @@ module.exports = {
     async execute(client, message, args, cmd, Discord, profileData, MessageEmbed) {
         const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
         if(!profileData) return message.reply('Looks like this is your first time, you need to run the command again!');
-
+        
         try {
             const balEmbed = new MessageEmbed()
             .setColor('#1b1c1c')
@@ -22,6 +24,4 @@ module.exports = {
         }
 
     }
-
 };
-    

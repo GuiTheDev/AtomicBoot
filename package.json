@@ -1,9 +1,9 @@
 {
   "name": "atomicboot",
   "version": "1.0.0",
-  "engines":{
-    "node":"16.x"
-   },
+  "engines": {
+    "node": "16.x"
+  },
   "description": "a mixed bot for discord",
   "main": "main.js",
   "scripts": {
@@ -12,8 +12,10 @@
   "author": "Guilherme Macedo",
   "license": "ISC",
   "dependencies": {
+    "discord-buttons-pages": "^1.1.7",
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
+    "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "mongoose": "^6.0.6"
   }
