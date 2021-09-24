@@ -1,4 +1,14 @@
-include includes/header.pug
+doctype 
+html(lang="es")
+    head 
+     include includes/header.pug
+
+     link(rel='stylesheet', href='/css/index.css', type='text/css')
+
 body
-    h1 Yay
-    p #{pog}
+    include includes/navbar.pug
+    .jumbotron.text-center.bg-transparent
+        h1.display-3 AtomicBoot
+        p.lead Best bot in the universe!
+          i.fas.fa-star.pl-2
+        button.btn.btn-dark Add me

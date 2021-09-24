@@ -13,6 +13,7 @@
   "author": "Guilherme Macedo",
   "license": "ISC",
   "dependencies": {
+    "bootstrap": "^5.1.1",
     "discord-buttons-pages": "^1.1.7",
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
