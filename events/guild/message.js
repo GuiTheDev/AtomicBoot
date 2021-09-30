@@ -2,6 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const profileModel = require("../../models/profileSchema");
 const cooldowns = new Map();
 
+
 module.exports = async (Discord, client, message) => {
     const prefix = '-';
 
@@ -59,5 +60,7 @@ module.exports = async (Discord, client, message) => {
     time_stamps.set(message.author.id, current_time);
     setTimeout(() => time_stamps.delete(message.author.id), cooldown_amount);
 
-    if(command) command.execute(client, message, args, cmd, Discord, profileData, MessageEmbed);
+    if(command) command.execute(client, message, args, cmd, Discord, profileData, MessageEmbed,);
+
+
 }

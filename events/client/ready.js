@@ -1,3 +1,4 @@
-module.exports = () =>{
-    console.log('Bot is online!');
-}
+module.exports = async (client) => {
+    console.log(`Logged to the client`);
+
+};

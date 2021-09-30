@@ -2,6 +2,7 @@ const profileModel = require("../models/profileSchema");
 
 module.exports = {
     name : 'balance',
+    category: 'Economy',
     aliases: ["bal", "bl"],
     description: "Check ur balance",
     permissions: [],

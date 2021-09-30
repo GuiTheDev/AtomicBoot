@@ -5,7 +5,10 @@ html(lang="es")
     head 
      include includes/header.pug
 
-body
+    script(src='/js/commands.js', defer)
+    link(rel='stylesheet', href='/css/commands.css')
+    
+
     include includes/navbar.pug
     .container
         .jumbotron.text-center.bg-transparent
@@ -13,12 +16,19 @@ body
             p.lead View the commands for AtomicBoot
             hr
 
-            section#commands 
+            section#commands
+                .d-flex.justify-content-center
+                    #search.form-group.p-3
+                        input.form-control(type='search').text-center
+                    button.btn
+                     i.fas.fa-search
                 .row
-                    .col-sm-3.text-left
-                        each category in categories
-                            +category(category)
-                    .col-sm-9
-                        ul.list.group.mb-2.text-left
-                            li.list-group-item test 2
+                    .col-sm-3.text-left.categories
+                          ul.list-group.mb-2
+                            each category in categories
+                                +category(category)
+                    .col-sm-9.text-left.commands
+                         ul.list-group.mb-2
+                            each cmd in commands
+                                +command(cmd)
                 

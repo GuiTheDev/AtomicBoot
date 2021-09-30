@@ -1,0 +1,10 @@
+#search {
+    max-width: 300px;
+}
+#search + button {
+    height: 70px;
+}
+
+li {
+    cursor: pointer
+}

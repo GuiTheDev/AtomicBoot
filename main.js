@@ -1,6 +1,8 @@
 const Discord = { Client, Intents, DiscordAPIError } = require('discord.js');
-const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS, Intents.FLAGS.GUILD_VOICE_STATES] });
 const prefix = '-';
+const { Player } = require('discord-player');
+
 require('dotenv').config({ path: '.env' });
 
 const mongoose = require("mongoose");
@@ -18,15 +20,9 @@ client.once('ready', () => {
 })
 
 
-client.on('message', message => {
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
-    if(message.content === "hello"){
-        message.reply('Hey!')
-    }
-})
+client.config = require('./config');
 
-
-
+global.player = new Player(client, client.config.opt.discordPlayer);
 
 mongoose.connect(process.env.MONGODB_SRV, {
     useNewUrlParser: true,
