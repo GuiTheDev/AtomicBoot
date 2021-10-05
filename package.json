@@ -24,6 +24,7 @@
     "fs": "^0.0.1-security",
     "mongoose": "^6.0.6",
     "opusscript": "^0.0.8",
+    "phin": "^3.6.0",
     "pug": "^3.0.2",
     "yt-search": "^2.10.1",
     "ytdl-core": "^4.9.1"
