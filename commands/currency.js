@@ -6,25 +6,23 @@ module.exports = {
     permissions: [],
     description: "Currencys and Cripto infos!",
     async execute(client, message, args, cmd, Discord, profileData, MessageEmbed) {
-        const curId = args[0]
+        const curId = args[0].toLowerCase();
         const toCur = args[1]
-        const howM = args[2]
-        const curIdu = curId.toUpperCase();
-        const toCurU = toCur.toUpperCase();
-        if(!curId) return message.channel.send('Please give a valid currency(Btc, Eth, etc.. !');
-        if(!toCur) return message.channel.send('Please give a valid currency to convert(Eur, USD, etc...)');
-        if(!howM) return message.channel.send('Please give the amount of the currency u want to convert!')
-        axios.get(`https://api.coinconvert.net/convert/${curId.toLowerCase()}/${toCur.toLowerCase()}?amount=${howM}`)
+        if(!curId) return message.channel.send('Please give a valid currency(Bitcoin/ethereum, etc...');
+
+        
+        axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=${curId}`)
             .then((res) => {
                 console.log('RES: ', res.data)
-                console.log(res.data.status)
+                if(!res.data[0]) return message.channel.send('Invalid crypto name!')
+                console.log(res)
 
                 const curEmbed = new MessageEmbed()
                 .setColor('GREEN')
                 .setTitle(`${curId.toUpperCase()} info`)
                 .addFields(
                     { name: 'Name: ', value: `${curId.toUpperCase()}`},
-                    { name: 'Price', value: `${howM} ${res.data.BTC} its equal to ${res.data.EUR}`}
+                    { name: `${curId.toUpperCase()}`, value: `1 ${curId.toUpperCase()} its equal to ${res.data[0].current_price} $`}
                 )
                 .setFooter('💰 Work to pay the bills!')
                 message.channel.send({ embeds:[curEmbed]});
