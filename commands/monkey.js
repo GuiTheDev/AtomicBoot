@@ -6,6 +6,12 @@ module.exports = {
     permissions: [],
     description: "A monkey Picture!",
     async execute(client, message, args, cmd, Discord, profileData, MessageEmbed) {
-        message.channel.send("https://www.placemonkeys.com/500/350?random=2")
+        axios.get("https://www.placemonkeys.com/500/350?random=2")
+            .then((res) => {
+                console.log('RES: ', message.reply(res.data[0]))
+            })
+            .catch((err) => {
+                console.error('err')
+            })
     }
 }

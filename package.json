@@ -13,6 +13,7 @@
   "author": "Guilherme Macedo",
   "license": "ISC",
   "dependencies": {
+    "@marsron/google-image": "^1.0.4",
     "axios": "^0.22.0",
     "bootstrap": "^5.1.1",
     "crypto-convert": "^1.0.4",
@@ -21,14 +22,20 @@
     "discord-player": "^5.1.0",
     "discord.js": "^13.1.0",
     "dotenv": "^10.0.0",
+    "earthquake": "^0.1.0",
+    "earthquake-emitter": "^1.0.1",
     "express": "^4.17.1",
     "ffmpeg": "^0.0.4",
     "fs": "^0.0.1-security",
+    "image-search-engine": "^1.2.1",
     "mongoose": "^6.0.6",
+    "node-fetch": "^3.0.0",
     "opusscript": "^0.0.8",
     "phin": "^3.6.0",
+    "publicalerts": "^1.0.2",
     "pug": "^3.0.2",
     "superagent": "^6.1.0",
+    "tape": "^5.3.1",
     "yt-search": "^2.10.1",
     "ytdl-core": "^4.9.1"
   }
